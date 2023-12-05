@@ -1,0 +1,28 @@
+/* ... (estilos existentes) ... */
+
+#main-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .produto {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .produto img {
+    width: 100%;
+    max-width: 200px; /* Tamanho padronizado das imagens */
+    height: auto;
+    display: block; /* Corrige possíveis espaços em branco abaixo das imagens */
+  }
+  
+  .produto a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  

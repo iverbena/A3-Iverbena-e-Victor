@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Entrar</title>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="entrar.html">Entrar</a></li>
+      <li><a href="sobre-nos.html">Sobre nós</a></li>
+    </ul>
+  </div>
+
+  <div id="main-content">
+    <link rel="stylesheet" href="styleE.css">
+    <h2>Entrar</h2>
+    
+    <!-- Formulário de Login -->
+    <form onsubmit="return processarLogin()">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Seção do Perfil -->
+    <div id="perfil" class="perfil" style="display: none;">
+      <h3>Seu Perfil</h3>
+
+      <label for="nome">Nome:</label>
+      <p id="nomePerfil"></p>
+
+      <label for="email">E-mail:</label>
+      <p id="emailPerfil"></p>
+
+      <button type="button" onclick="atualizarPerfil()">Atualizar Perfil</button>
+    </div>
+  </div>
+
+  <script>
+    // Objeto simulado de usuário
+    var usuarioSimulado = {
+      nome: 'Nome do Usuário',
+      email: 'usuario@email.com',
+      comprasAnteriores: ['Produto 1', 'Produto 2'],
+      pedidos: ['Pedido 123', 'Pedido 456']
+    };
+
+    function processarLogin() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Simulação de lógica de login
+      if (username === 'usuario' && password === 'senha') {
+        exibirPerfil(usuarioSimulado);
+        return false;
+      } else {
+        alert('Credenciais inválidas. Tente novamente.');
+        return false;
+      }
+    }
+
+    function exibirPerfil(usuario) {
+      document.getElementById('nomePerfil').innerText = usuario.nome;
+      document.getElementById('emailPerfil').innerText = usuario.email;
+
+      // Exibindo compras anteriores e pedidos (simulados)
+      var perfilDiv = document.getElementById('perfil');
+      perfilDiv.style.display = 'block';
+      perfilDiv.innerHTML += '<h4>Compras Anteriores:</h4>';
+      perfilDiv.innerHTML += '<ul>';
+      usuario.comprasAnteriores.forEach(function(compra) {
+        perfilDiv.innerHTML += '<li>' + compra + '</li>';
+      });
+      perfilDiv.innerHTML += '</ul>';
+
+      perfilDiv.innerHTML += '<h4>Pedidos:</h4>';
+      perfilDiv.innerHTML += '<ul>';
+      usuario.pedidos.forEach(function(pedido) {
+        perfilDiv.innerHTML += '<li>' + pedido + '</li>';
+      });
+      perfilDiv.innerHTML += '</ul>';
+    }
+
+    function atualizarPerfil() {
+      // Lógica para atualizar o perfil (pode ser feito com JavaScript/AJAX ou enviado para um servidor)
+      alert('Perfil atualizado com sucesso!');
+    }
+  </script>
+</body>
+</html>
